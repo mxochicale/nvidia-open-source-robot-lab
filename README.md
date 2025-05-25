@@ -1,6 +1,8 @@
 # :robot:  nvidia-open-source-robot-lab
 A repository with examples for running **NVIDIA Isaac Sim**, **Isaac Lab**, and **ROS** using containers. 🧪🧠🐳
 
+![animation](docs/figs/ezgif-4fa230460975b3.gif)
+Isaac Sim Full App with Robotics Example > Policy > Humanoid
 
 ## 🛠️ Requirements
 - 🐧 Ubuntu  

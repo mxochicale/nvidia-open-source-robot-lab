@@ -1,1 +1,1 @@
-docker build -t isaac_sim_ros2:4.5.0-Humble .
+docker build -t isaac_sim_ros2:5.0.0-Humble .

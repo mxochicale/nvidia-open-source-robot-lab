@@ -1,5 +1,5 @@
 # Base image
-FROM nvcr.io/nvidia/isaac-sim:4.5.0
+FROM nvcr.io/nvidia/isaac-sim:5.0.0
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV ROS_DISTRO=humble

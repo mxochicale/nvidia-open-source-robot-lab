@@ -5,9 +5,9 @@ A repository with examples for running **NVIDIA Isaac Sim**, **Isaac Lab**, and 
 Isaac Sim Full App: Windows > Examples > Robotics Example > Policy > Humanoid [LOAD]
 
 ## 🛠️ Requirements
-- 🐧 Ubuntu
-- 🐋 Docker > https://github.com/mxochicale/code/tree/main/docker  
-- 🎮 NVIDIA Drivers & Container Toolkit > https://github.com/mxochicale/code/tree/main/gpu/installation
+- 🐧 Ubuntu > [:link:](https://github.com/mxochicale/tools/tree/main/ubuntu)
+- 🐋 Docker > [:link:](https://github.com/mxochicale/code/tree/main/docker)
+- 🎮 NVIDIA Drivers and Container Toolkit > [:link:](https://github.com/mxochicale/code/tree/main/gpu/installation)
 
 ## 🏗️ Build and run with bash scripts
 

@@ -11,13 +11,14 @@ Isaac Sim Full App: Windows > Examples > Robotics Example > Policy > Humanoid [L
 
 ## 🏗️ Build and run with bash scripts
 
-🔧 **Build Docker image**
+🔧 **Build Docker image** [build.bash](build.bash)
 ```bash
 bash build.bash
+docker system prune -f --volumes
 ```
 
 ## 🐳 Run Docker and Isaac Sim inside the container
-* Run docker
+* Run docker [run.bash](run.bash)
 ```bash
 bash run.bash
 ```

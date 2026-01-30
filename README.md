@@ -103,7 +103,8 @@ docker run --name isaac-lab --entrypoint bash -it --gpus all -e "ACCEPT_EULA=Y" 
    -v ~/docker/isaac-sim/documents:/root/Documents:rw \
    nvcr.io/nvidia/isaac-lab:2.3.1
 #To run an example within the container, run:
-./isaaclab.sh -p scripts/tutorials/00_sim/log_time.py --headless
+./isaaclab.sh -p scripts/tutorials/00_sim/create_empty.py
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Ant-v0 --headless
 ```
 
 ## Links

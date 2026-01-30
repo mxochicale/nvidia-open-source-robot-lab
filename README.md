@@ -17,6 +17,12 @@ bash isaac-docker.sh --version 5.1.0 --ros-distro Humble build
 bash isaac-docker.sh --version 5.1.0 --ros-distro Humble run
 docker system prune -f --volumes
 ```
+* sample output for docker images
+```bash
+REPOSITORY       TAG            IMAGE ID       CREATED             SIZE
+isaac_sim_ros2   5.0.0-Humble   a74b6685718f   About an hour ago   19.1GB
+```
+
 
 * Inside the container run app
 ```bash
@@ -75,6 +81,30 @@ sudo apt install cmake build-essential
 python scripts/tutorials/00_sim/create_empty.py
 ```
 
+## Running Pre-Built Isaac Lab Container [ref](https://isaac-sim.github.io/IsaacLab/main/source/deployment/docker.html)
+
+See official tag releases https://catalog.ngc.nvidia.com/orgs/nvidia/containers/isaac-lab/tags?version=2.3.1
+```bash
+docker pull nvcr.io/nvidia/isaac-lab:2.3.1
+
+#To enable rendering through X11 forwarding, run:
+xhost +
+docker run --name isaac-lab --entrypoint bash -it --gpus all -e "ACCEPT_EULA=Y" --rm --network=host \
+   -e "PRIVACY_CONSENT=Y" \
+   -e DISPLAY \
+   -v $HOME/.Xauthority:/root/.Xauthority \
+   -v ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw \
+   -v ~/docker/isaac-sim/cache/ov:/root/.cache/ov:rw \
+   -v ~/docker/isaac-sim/cache/pip:/root/.cache/pip:rw \
+   -v ~/docker/isaac-sim/cache/glcache:/root/.cache/nvidia/GLCache:rw \
+   -v ~/docker/isaac-sim/cache/computecache:/root/.nv/ComputeCache:rw \
+   -v ~/docker/isaac-sim/logs:/root/.nvidia-omniverse/logs:rw \
+   -v ~/docker/isaac-sim/data:/root/.local/share/ov/data:rw \
+   -v ~/docker/isaac-sim/documents:/root/Documents:rw \
+   nvcr.io/nvidia/isaac-lab:2.3.1
+#To run an example within the container, run:
+./isaaclab.sh -p scripts/tutorials/00_sim/log_time.py --headless
+```
 
 ## Links
 * [References](docs/README.md#references)

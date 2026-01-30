@@ -11,6 +11,7 @@
 * https://catalog.ngc.nvidia.com/orgs/nvidia/containers/isaac-sim/tags
 * https://nvidianews.nvidia.com/news/nvidia-isaac-gr00t-n1-open-humanoid-robot-foundation-model-simulation-frameworks
 * https://github.com/arambarricalvoj/nvidia_isaac-sim_ros2_docker
+* https://catalog.ngc.nvidia.com/orgs/nvidia/containers/isaac-sim
 
 ## Papers
 * https://arxiv.org/abs/2503.14734 

@@ -59,7 +59,8 @@ bash isaac-docker.sh --lab-version 2.3.1 launch-lab
 ./isaaclab.sh -p scripts/demos/arms.py
 ./isaaclab.sh -p scripts/demos/h1_locomotion.py
 ./isaaclab.sh -p scripts/demos/bipeds.py
-
+# The list of environments available registered with OpenAI Gym can be found by running:
+./isaaclab.sh -p scripts/environments/list_envs.py
 ```
 
 ## Links

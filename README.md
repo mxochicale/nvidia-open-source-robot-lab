@@ -30,41 +30,40 @@ isaac_sim_ros2   5.0.0-Humble   a74b6685718f   About an hour ago   19.1GB
 Instructions to run pre-built isaac lab with container registry [ref](https://isaac-sim.github.io/IsaacLab/main/source/deployment/docker.html). See official tag releases of [isaac-lab](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/isaac-lab/tags?version=2.3.1)
 
 ```bash
-docker pull nvcr.io/nvidia/isaac-lab:2.3.1
+bash isaac-docker.sh --lab-version 2.3.1 pull-lab
 ```
 * sample output for docker images
 ```bash
 REPOSITORY                 TAG       IMAGE ID       CREATED       SIZE
-nvcr.io/nvidia/isaac-lab   2.3.1     0fbc8026bae6   8 weeks ago   17.5GB
+nvcr.io/nvidia/isaac-lab   2.3.1     <id>           8 weeks ago   17.5GB
 ```
 
 * Run isaac lab with some examples
+```bash
+bash isaac-docker.sh --lab-version 2.3.1 launch-lab
 ```
-#To enable rendering through X11 forwarding, run:
-xhost +
-docker run --name isaac-lab --entrypoint bash -it --gpus all -e "ACCEPT_EULA=Y" --rm --network=host \
-   -e "PRIVACY_CONSENT=Y" \
-   -e DISPLAY \
-   -v $HOME/.Xauthority:/root/.Xauthority \
-   -v ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw \
-   -v ~/docker/isaac-sim/cache/ov:/root/.cache/ov:rw \
-   -v ~/docker/isaac-sim/cache/pip:/root/.cache/pip:rw \
-   -v ~/docker/isaac-sim/cache/glcache:/root/.cache/nvidia/GLCache:rw \
-   -v ~/docker/isaac-sim/cache/computecache:/root/.nv/ComputeCache:rw \
-   -v ~/docker/isaac-sim/logs:/root/.nvidia-omniverse/logs:rw \
-   -v ~/docker/isaac-sim/data:/root/.local/share/ov/data:rw \
-   -v ~/docker/isaac-sim/documents:/root/Documents:rw \
-   nvcr.io/nvidia/isaac-lab:2.3.1
-#To run an example within the container, run:
+
+* Run examples within the container
+```bash
 ./isaaclab.sh -p scripts/tutorials/00_sim/create_empty.py
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Ant-v0 --headless
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Humanoid-v0
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Lift-Cube-Franka-v0
-#See other Environment IDs > https://isaac-sim.github.io/IsaacLab/main/source/overview/environments.html
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Velocity-Flat-H1-v0
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Velocity-Rough-H1-v0
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Velocity-Flat-G1-v0
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Velocity-Rough-G1-v0
+
+#demos
+./isaaclab.sh -p scripts/demos/arms.py
+./isaaclab.sh -p scripts/demos/h1_locomotion.py
+./isaaclab.sh -p scripts/demos/bipeds.py
+
 ```
 
 ## Links
 * [References](docs/README.md#references)
+* See other Environment IDs > https://isaac-sim.github.io/IsaacLab/main/source/overview/environments.html
 
 ## 📥 Clone repository
 ```bash

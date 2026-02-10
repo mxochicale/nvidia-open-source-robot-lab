@@ -46,8 +46,8 @@ bash isaac-docker.sh --lab-version 2.3.2 launch-lab
 * Run examples within the container
 ```bash
 #reinforcement_learning
-./isaaclab.sh --python scripts/reinforcement_learning/rsl_rl/train.py --help
-./isaaclab.sh --python scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Velocity-Flat-H1-v0 --num_envs 5 --max_iterations 10 #--headless
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --help
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Velocity-Flat-H1-v0 --num_envs 5 --max_iterations 10 #--headless
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Ant-v0 --headless
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Humanoid-v0
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Lift-Cube-Franka-v0
@@ -55,11 +55,22 @@ bash isaac-docker.sh --lab-version 2.3.2 launch-lab
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Velocity-Rough-H1-v0
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Velocity-Flat-G1-v0
 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Velocity-Rough-G1-v0
-#demos
+#TRAIN and PLAY with Isaac-Ant-v0
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task Isaac-Ant-v0 --num_envs 10 --max_iterations 100
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play.py --task Isaac-Ant-v0 --num_envs 10 --checkpoint logs/rsl_rl/ant/2026-02-10_00-33-56/model_99.pt 
+#TRAIN and PLAY with Isaac-Cartpole-Direct-v0
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task Isaac-Cartpole-Direct-v0 --num_envs 10 --max_iterations 100
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play.py --task Isaac-Cartpole-Direct-v0 --num_envs 128 --checkpoint logs/rsl_rl/cartpole_direct/
+#TRAIN and PLAY with Isaac-Humanoid-v0
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task Isaac-Humanoid-v0 --num_envs 128 --max_iterations 100
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task Isaac-Humanoid-v0 --num_envs 128 --max_iterations 2000 --headless
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play.py --task Isaac-Humanoid-v0 --num_envs 1000 --checkpoint logs/rsl_rl/humanoid
+#
+#Demos
 ./isaaclab.sh -p scripts/demos/arms.py
 ./isaaclab.sh -p scripts/demos/h1_locomotion.py
 ./isaaclab.sh -p scripts/demos/bipeds.py
-# The list of environments available registered with OpenAI Gym can be found by running:
+#The list of environments available registered with OpenAI Gym can be found by running:
 ./isaaclab.sh -p scripts/environments/list_envs.py
 ```
 

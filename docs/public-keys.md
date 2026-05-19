@@ -1,4 +1,4 @@
-# ublic keys
+# SSH public keys
 
 * Create public key
 ```bash
